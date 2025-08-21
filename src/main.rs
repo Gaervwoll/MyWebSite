@@ -1,23 +1,14 @@
-use actix_web::{web, App, HttpServer, Responder};
+use actix_web::web;
+use actix_files as fs;
 
-async fn hello() -> impl Responder {
-    "Hello World!"
-}
-
-// Обычно маршруты выносятся в отдельные модули
-mod handlers;
-mod models;
-mod routes;
-
-#[actix_web::main]
-async fn main() -> std::io::Result<()> {
-    HttpServer::new(|| {
-        App::new()
-            .route("/", web::get().to(hello))
-            // Подключаем другие маршруты
-            .configure(routes::config)
-    })
-    .bind("127.0.0.1:8080")?
-    .run()
-    .await
+pub fn config(cfg: &mut web::ServiceConfig) {
+    cfg
+        // API routes
+        .service(
+            web::scope("/api")
+                .route("/users", web::get().to(handlers::get_users))
+                .route("/users", web::post().to(handlers::create_user))
+        )
+        // Serve static files
+        .service(fs::Files::new("/", "./static").index_file("index.html"));
 }
