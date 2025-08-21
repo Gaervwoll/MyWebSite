@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<meta name="color-scheme" content="light dark">
+	<title>Личный сайт — Главная</title>
+	<meta name="description" content="Личный сайт. Проекты, статьи и контакты.">
+	<link rel="preload" href="/static/style.css" as="style">
+	<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+	<canvas id="background-canvas" aria-hidden="true"></canvas>
+	<main class="hero" role="main">
+		<div class="hero__content">
+			<h1 class="hero__title">Привет! Я — Ваше Имя</h1>
+			<p class="hero__subtitle">Разрабатываю веб‑приложения, пишу статьи и делюсь идеями.</p>
+			<a class="cta-button" href="#contacts" aria-label="Перейти к разделу контактов">
+				<span>Контакты</span>
+			</a>
+		</div>
+	</main>
+	<section id="contacts" class="section section--contacts" aria-labelledby="contacts-title">
+		<div class="contacts">
+			<h2 class="contacts__title" id="contacts-title">Контакты</h2>
+			<ul class="contacts__list" role="list">
+				<li class="contacts__item">
+					<a class="contact-link" href="mailto:you@example.com" aria-label="Написать на email">you@example.com</a>
+				</li>
+				<li class="contacts__item">
+					<a class="contact-link" href="https://github.com/yourname" target="_blank" rel="noopener noreferrer me" aria-label="GitHub профиль">github.com/yourname</a>
+				</li>
+				<li class="contacts__item">
+					<a class="contact-link" href="https://t.me/yourname" target="_blank" rel="noopener noreferrer me" aria-label="Telegram">t.me/yourname</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+	<noscript>
+		<div class="noscript-banner">Для полной анимации включите JavaScript. Сайт работает и без него.</div>
+	</noscript>
+	<script>
+		// Помечаем, что JS включен, для некоторых прогрессивных улучшений в CSS
+		document.documentElement.classList.add('js');
+	</script>
+	<script src="/static/script.js" defer></script>
+</body>
+</html>
+
